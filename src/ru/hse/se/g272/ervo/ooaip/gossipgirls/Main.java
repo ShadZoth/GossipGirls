@@ -65,9 +65,7 @@ public class Main {
      * Вывод на экран информации обо всех сплетницах
      */
     private static void print() {
-        for (GossipGirl girl : allGirls) {
-            System.out.println(girl);
-        }
+        allGirls.forEach(System.out::println);
     }
 
     /**
@@ -139,14 +137,6 @@ public class Main {
      */
     private static class NamesGetter {
         /**
-         * Действия, которые могут потребовать определения имени сплетнецы
-         */
-        enum Action {
-            LINK, MESSAGE, UNLINK
-        }
-
-        //комментарий выглядит так для корректной генерации JavaDoc файлов
-        /**
          * &#x418;&#x43c;&#x44f; &#x441;&#x43f;&#x43b;&#x435;&#x442;&#x43d;&#x435;&#x446;&#x44b;
          */
         private String name;
@@ -158,6 +148,7 @@ public class Main {
         private String subscriberName;
 
         //комментарий выглядит так для корректной генерации JavaDoc файлов
+
         /**
          * &#x41f;&#x43e;&#x43b;&#x443;&#x447;&#x430;&#x435;&#x442; &#x438;&#x43c;&#x44f; &#x441;&#x43f;&#x43b;&#x435;&#x442;&#x43d;&#x438;&#x446;&#x44b;
          * @return &#x418;&#x43c;&#x44f; &#x441;&#x43f;&#x43b;&#x435;&#x442;&#x43d;&#x438;&#x446;&#x44b;
@@ -167,6 +158,7 @@ public class Main {
         }
 
         //комментарий выглядит так для корректной генерации JavaDoc файлов
+
         /**
          * &#x41f;&#x43e;&#x43b;&#x443;&#x447;&#x430;&#x435;&#x442; &#x438;&#x43c;&#x44f; &#x43f;&#x43e;&#x434;&#x43f;&#x438;&#x441;&#x447;&#x438;&#x446;&#x44b;
          * @return &#x418;&#x43c;&#x44f; &#x43f;&#x43e;&#x434;&#x43f;&#x438;&#x441;&#x447;&#x438;&#x446;&#x44b;
@@ -174,6 +166,8 @@ public class Main {
         public String getSubscriberName() {
             return subscriberName;
         }
+
+        //комментарий выглядит так для корректной генерации JavaDoc файлов
 
         /**
          * Определяет необходимые имена
@@ -196,7 +190,7 @@ public class Main {
             //строка выглядит так для корректной генерации JavaDoc файлов
             System.out.println("\u0418\u043c\u0435\u043d\u0430 \u0441\u043f\u043b\u0435\u0442\u043d\u0438\u0446: ");
             System.out.print("|");
-            for (GossipGirl girl: allGirls) {
+            for (GossipGirl girl : allGirls) {
                 System.out.print(girl.getName() + "|");
             }
             System.out.println();
@@ -216,9 +210,17 @@ public class Main {
                     } else if (name.equals(subscriberName)) {
                         System.out.println("Не стоит подписывать сплетницу на саму себя");
                     }
-                } while (!allGirls.contains(subscriberName) || name.equals(subscriberName));
+                }
+                while (!allGirls.contains(subscriberName) || name.equals(subscriberName));
             }
             return this;
+        }
+
+        /**
+         * Действия, которые могут потребовать определения имени сплетнецы
+         */
+        enum Action {
+            LINK, MESSAGE, UNLINK
         }
     }
 }

@@ -27,7 +27,7 @@ public class Message {
     public Message(String text) {
         this.text = text;
 
-        alreadyReceived = new HashSet<MessageReceiver>();
+        alreadyReceived = new HashSet<>();
     }
 
     /**

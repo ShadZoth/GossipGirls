@@ -7,6 +7,7 @@ package ru.hse.se.g272.ervo.ooaip.gossipgirls;
  * @author Ervo Victor, 272SE
  * @since 16.11.13
  */
+@FunctionalInterface
 public interface MessageReceiver {
     /**
      * Метод получения объектом сообщения

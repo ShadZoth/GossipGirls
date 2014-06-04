@@ -16,7 +16,7 @@ public class GirlMap implements Iterable<GossipGirl> {
      * Создаёт пустую коллекцию сплетниц
      */
     public GirlMap() {
-        girlHashMap = new HashMap<String, GossipGirl>();
+        girlHashMap = new HashMap<>();
     }
 
     //комментарий выглядит так для корректной генерации JavaDoc файлов
@@ -27,15 +27,6 @@ public class GirlMap implements Iterable<GossipGirl> {
      */
     public boolean contains(String name) {
         return girlHashMap.containsKey(name);
-    }
-
-    /**
-     * Проверяет, содержит ли коллекция указанную сплетницу
-     * @param girl Сплетница
-     * @return {@code true}, если содержит; {@code false} - иначе
-     */
-    public boolean contains(GossipGirl girl) {
-        return girlHashMap.containsValue(girl);
     }
 
     /**

@@ -30,7 +30,7 @@ public class GossipGirl implements MessageReceiver {
      */
     public GossipGirl(String name) {
         this.name = name;
-        subscribers = new HashSet<GossipGirl>();
+        subscribers = new HashSet<>();
     }
 
     /**
@@ -66,11 +66,10 @@ public class GossipGirl implements MessageReceiver {
     private void receiveSpecialMessage(Message message) {
         System.out.println(getName() + " приняла сообщение \"" + message.getText() + "\"");
         message.addReceiver(this);
-        for (GossipGirl girl: subscribers) {
-            if (!message.wasReceivedBy(girl)) {
-                girl.receiveSpecialMessage(message);
-            }
-        }
+        subscribers
+                .stream()
+                .filter(girl -> !message.wasReceivedBy(girl))
+                .forEach(girl -> girl.receiveSpecialMessage(message));
     }
 
     /**
